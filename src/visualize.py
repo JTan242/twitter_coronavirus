@@ -2,6 +2,10 @@
 
 # command line args
 import argparse
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_path',required=True)
 parser.add_argument('--key',required=True)
@@ -24,5 +28,30 @@ if args.percent:
 
 # print the count values
 items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
-for k,v in items:
-    print(k,':',v)
+# for k,v in items:
+#    print(k,':',v)
+items = items[:10] #top 10
+keys = [item[0] for item in items]
+values = [item[1] for item in items]
+keys = keys[::-1]
+values = values[::-1]
+
+# create the bar graph
+
+plt.bar(range(len(keys)), values)
+plt.xticks(range(len(keys)), keys)
+if 'en' in keys:
+    xlabel = 'Language'
+    name = 'language'
+else:
+    xlabel = 'Country'
+    name = 'country'
+
+if str(args.key) == '#coronavirus':
+    pngkey = '_' + str(args.key)[1:]
+else:
+    pngkey = '_korean'
+
+plt.xlabel(xlabel)
+plt.ylabel('Number of Times Mentioned in Tweets')
+plt.savefig(name + pngkey + '.png')

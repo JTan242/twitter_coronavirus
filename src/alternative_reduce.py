@@ -71,7 +71,7 @@ for hashtag in dataset:
 # format x-axis as dates
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
 y_format = mtick.FuncFormatter(lambda x, pos: '{:,.0f}'.format(x/100000))
-ax.xaxis.set_major_locator(mdates.MonthLocator(bymonthday=1, bymonth=range(0, 13, 1)))
+ax.xaxis.set_major_locator(mdates.MonthLocator(bymonthday=1, bymonth=range(0, 13, 2)))
 ax.yaxis.set_major_formatter(y_format)
 ax.set_xlabel('Date')
 ax.set_ylabel('Times Mentioned in Tweets (tens of thousands)')

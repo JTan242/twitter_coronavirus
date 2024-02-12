@@ -4,7 +4,6 @@
 import argparse
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_path',required=True)
@@ -16,7 +15,7 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
-
+import matplotlib.pyplot as plt
 # open the input path
 with open(args.input_path) as f:
     counts = json.load(f)

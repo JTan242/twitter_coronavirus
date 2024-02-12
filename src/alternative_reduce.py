@@ -74,7 +74,7 @@ y_format = mtick.FuncFormatter(lambda x, pos: '{:,.0f}'.format(x/100000))
 ax.xaxis.set_major_locator(mdates.MonthLocator(bymonthday=1, bymonth=range(0, 13, 2)))
 ax.yaxis.set_major_formatter(y_format)
 ax.set_xlabel('Date')
-ax.set_ylabel('Times Hashtag is Mentioned in Tweets')
+ax.set_ylabel('Times Hashtag is Mentioned in Tweets(per 10,000 tweets)')
 ax.legend()
 
 # save plot

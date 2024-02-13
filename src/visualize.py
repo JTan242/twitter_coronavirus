@@ -47,9 +47,9 @@ else:
     name = 'country'
 
 if str(args.key) == '#coronavirus':
-    pngkey = '_' + str(args.key)[1:]
+    pngkey = '_and_' + str(args.key)[1:]
 else:
-    pngkey = '_korean'
+    pngkey = '_and_코로나바이러스'
 
 plt.xlabel(xlabel)
 plt.ylabel('Number of Times Mentioned in Tweets')
